@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARGENTINO · Show de rock nacional y cumbia en vivo para fiestas y eventos</title>
+<meta name="description" content="Show en vivo de rock nacional y cumbia para casamientos, cumpleaños, fiestas de empresa y bares en Buenos Aires. Cada tema con la voz del cantante original.">
+<meta property="og:title" content="ARGENTINO · Show de rock nacional en vivo">
+<meta property="og:description" content="Rock nacional y cumbia en vivo para tu fiesta, con la voz de cada cantante original.">
+<meta property="og:image" content="img/og.jpg">
+<style>
+@font-face{font-family:'Barlow Condensed';font-weight:500;font-display:swap;src:url(fonts/barlow-condensed-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-weight:600;font-display:swap;src:url(fonts/barlow-condensed-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-weight:700;font-display:swap;src:url(fonts/barlow-condensed-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Lexend';font-weight:300;font-display:swap;src:url(fonts/lexend-latin-300-normal.woff2) format('woff2')}
+@font-face{font-family:'Lexend';font-weight:400;font-display:swap;src:url(fonts/lexend-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Lexend';font-weight:500;font-display:swap;src:url(fonts/lexend-latin-500-normal.woff2) format('woff2')}
+:root{
+  --navy:#0b1d32; --navy-2:#122a47; --cream:#fefef3; --celeste:#38b2eb; --celeste-2:#7fcdf2;
+  --ink:#0b1d32; --muted:#4a5a6e; --line:#d9e9f3;
+  --head:'Barlow Condensed','Arial Narrow',sans-serif; --body:'Lexend',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font-family:var(--body);font-weight:300;color:var(--ink);background:var(--cream);line-height:1.65;font-size:17px}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(11,29,50,.92);backdrop-filter:blur(8px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--head);font-weight:700;letter-spacing:.22em;color:var(--celeste);text-decoration:none;font-size:22px}
+.logo i{width:18px;height:18px;border:2px solid var(--celeste);transform:rotate(45deg);display:block}
+.logo span{opacity:0;transform:translateX(-6px);transition:opacity .3s,transform .3s}
+nav.scrolled .logo span{opacity:1;transform:none}
+nav ul{display:flex;gap:44px;list-style:none}
+nav ul a{position:relative;color:#e6f3fb;text-decoration:none;font-family:var(--head);font-size:19px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 0}
+nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--celeste);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+nav ul a:hover{color:#fff}
+nav ul a:hover::after{transform:scaleX(1)}
+.btn{display:inline-block;background:var(--celeste);color:var(--navy);font-weight:500;text-decoration:none;padding:13px 26px;border-radius:999px;font-size:16px;transition:background .2s,transform .2s}
+.btn:hover{background:var(--celeste-2);transform:translateY(-1px)}
+.btn.small{padding:8px 18px;font-size:14px}
+.btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+.btn.ghost:hover{border-color:#fff;background:transparent}
+
+/* hero */
+.hero{background:var(--navy);color:#fff;overflow:hidden;position:relative}
+.hero::before{content:"";position:absolute;width:520px;height:520px;border:2px solid rgba(56,178,235,.25);transform:rotate(45deg);top:-260px;left:-220px}
+.hero::after{content:"";position:absolute;width:340px;height:340px;border:2px solid rgba(56,178,235,.18);transform:rotate(45deg);bottom:-200px;left:38%}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:center;padding-top:72px;padding-bottom:80px;position:relative;z-index:1}
+.kicker{line-height:1.4;font-family:var(--head);text-transform:uppercase;letter-spacing:.18em;color:var(--celeste-2);font-size:15px;font-weight:600}
+h1{margin-left:-.028em !important;font-family:var(--head);font-weight:700;font-size:clamp(56px,9vw,104px);letter-spacing:.1em;line-height:.95;color:var(--celeste);margin:10px 0 14px}
+.tag{margin-bottom:34px;font-family:var(--head);font-size:clamp(26px,3.4vw,36px);font-weight:600;text-transform:uppercase;letter-spacing:.03em;line-height:1.1}
+.lead{color:#cfe0ee;margin:18px 0 30px;max-width:480px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.photo{position:relative}
+.photo img{border-radius:18px;box-shadow:0 30px 60px rgba(0,0,0,.35);aspect-ratio:4/3;object-fit:cover;width:100%}
+.photo::after{content:"";position:absolute;inset:-14px 14px 14px -14px;border:2px solid var(--celeste);border-radius:22px;z-index:-1}
+
+/* sections */
+section{padding:88px 0}
+.sec-title{font-family:var(--head);text-transform:uppercase;font-weight:700;font-size:clamp(32px,4.4vw,46px);letter-spacing:.02em;line-height:1.05;margin-bottom:18px}
+.sec-title span{color:var(--celeste)}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.intro p{color:var(--muted)}
+.diff{border-left:3px solid var(--celeste);padding-left:24px}
+
+.video{background:#eef7fc}
+.video .frame{position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(11,29,50,.18);background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video .sec-title{text-align:center}
+.video p.sub{text-align:center;color:var(--muted);margin:-6px 0 32px}
+
+.rep{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:28px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px}
+.card h3{font-family:var(--head);text-transform:uppercase;font-size:24px;font-weight:700;color:var(--celeste);margin-bottom:12px;letter-spacing:.03em}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:#eef7fc;border-radius:999px;padding:6px 14px;font-size:15px;font-weight:400}
+
+.formato{background:var(--navy);color:#fff}
+.formato .sec-title{color:#fff}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:30px}
+.stat{border:1px solid rgba(127,205,242,.3);border-radius:16px;padding:24px}
+.stat b{display:block;font-family:var(--head);font-size:34px;color:var(--celeste);font-weight:700;line-height:1.1;margin-bottom:6px}
+.stat span{color:#cfe0ee;font-size:15px}
+
+.events{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:28px}
+.event{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;font-weight:400}
+.event i{display:block;font-style:normal;font-size:28px;margin-bottom:10px}
+.event small{display:block;color:var(--muted);font-weight:300;font-size:14px;margin-top:4px}
+
+.contact{background:linear-gradient(160deg,#eef7fc 0%,var(--cream) 70%)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.contact p{color:var(--muted);margin-bottom:26px}
+.links{display:grid;gap:14px}
+.links a{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;text-decoration:none;font-weight:400;transition:border-color .2s,transform .2s}
+.links a:hover{border-color:var(--celeste);transform:translateX(3px)}
+.links svg{width:26px;height:26px;flex:none;color:var(--celeste)}
+.links small{display:block;color:var(--muted);font-weight:300;font-size:13px}
+
+footer{background:var(--navy);color:#9fb6c9;text-align:center;padding:28px 0;font-size:14px}
+footer b{color:var(--celeste);letter-spacing:.2em;font-family:var(--head);font-size:18px}
+
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:20;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.wa-float svg{width:30px;height:30px;color:#fff}
+
+@media (max-width:860px){
+  nav ul{display:none}
+  .hero .wrap{grid-template-columns:minmax(0,1fr);padding-top:40px;padding-bottom:56px;gap:36px}
+  .photo{order:-1}
+  .intro,.contact .wrap{grid-template-columns:1fr;gap:36px}
+  .rep{grid-template-columns:1fr}
+  .grid4,.events{grid-template-columns:1fr 1fr}
+  section{padding:64px 0}
+}
+@media (max-width:420px){ .grid4,.events{grid-template-columns:1fr} body{font-size:16px} }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#" aria-label="ARGENTINO, inicio"><i></i><span>ARGENTINO</span></a>
+  <ul>
+    <li><a href="#show">El show</a></li>
+    <li><a href="#video">Video</a></li>
+    <li><a href="#repertorio">Repertorio</a></li>
+    <li><a href="#eventos">Eventos</a></li>
+  </ul>
+  <a class="btn small" href="#contacto">Contratar</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <div class="kicker">Show en vivo para fiestas y eventos</div>
+    <h1>ARGENTINO</h1>
+    <div class="tag">Rock nacional y cumbia,<br>con la voz de cada cantante</div>
+    <div class="cta">
+      <a class="btn" href="https://wa.me/5491141727528?text=Hola!%20quiero%20consultar%20por%20el%20show%20de%20ARGENTINO%20para%20un%20evento" target="_blank" rel="noopener">Consultá fechas</a>
+      <a class="btn ghost" href="#video">Ver el show</a>
+    </div>
+  </div>
+  <div class="photo"><img src="img/argentino.jpg" alt="Franco Ruiz cantando en vivo con la camiseta de la Selección Argentina"></div>
+</div></header>
+
+<section id="show"><div class="wrap intro">
+  <div>
+    <h2 class="sec-title">¿Qué es <span>Argentino</span>?</h2>
+    <p>Un show en vivo pensado para ese momento de la noche en que la pista explota y todos cantan. Los temas más icónicos del rock nacional y la cumbia, en un formato solista de alto impacto, para todas las edades.</p>
+  </div>
+  <div class="diff">
+    <h2 class="sec-title">El <span>diferencial</span></h2>
+    <p>Cada tema suena con la voz del cantante original, recreada en vivo mediante imitación vocal: no es un show de covers genérico. Se trabaja con pistas instrumentales originales de los temas, sin versiones alteradas ni karaoke. Más de 20 años de experiencia en escenario y producción de shows.</p>
+  </div>
+</div></section>
+
+<section id="video" class="video"><div class="wrap">
+  <h2 class="sec-title">Mirá el <span>show</span></h2>
+  <p class="sub">Así suena Argentino en vivo.</p>
+  <div class="frame">
+    <iframe src="https://www.youtube-nocookie.com/embed/RUqLpYVfiVQ" title="ARGENTINO en vivo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div></section>
+
+<section id="repertorio"><div class="wrap">
+  <h2 class="sec-title">Reper<span>torio</span></h2>
+  <div class="rep">
+    <div class="card"><h3>Rock nacional</h3><div class="chips">
+      <span>Soda Stereo</span><span>Divididos</span><span>Los Piojos</span><span>Callejeros</span><span>Redonditos de Ricota</span><span>La Renga</span><span>Bersuit Vergarabat</span><span>Babasónicos</span><span>Airbag</span><span>No Te Va Gustar</span><span>La Beriso</span><span>El Bordo</span><span>Guasones</span><span>Attaque 77</span><span>y más</span>
+    </div></div>
+    <div class="card"><h3>Cumbia y cuarteto</h3><div class="chips">
+      <span>Ke Personajes</span><span>L-Gante</span><span>Damas Gratis</span><span>Rodrigo</span><span>Pibes Chorros</span><span>Luck Ra</span><span>El Polaco</span><span>Néstor en Bloque</span>
+    </div></div>
+  </div>
+</div></section>
+
+<section class="formato"><div class="wrap">
+  <h2 class="sec-title">Formato del <span>show</span></h2>
+  <div class="grid4">
+    <div class="stat"><b>30 a 90 min</b><span>Sets de 30, 40, 60 y 90 minutos, según el evento.</span></div>
+    <div class="stat"><b>Setlist a medida</b><span>El repertorio se arma según el público y los temas que no pueden faltar en tu fiesta.</span></div>
+    <div class="stat"><b>Montaje simple</b><span>Sin banda ni grandes equipos: un show completo que se arma en minutos y se adapta a cualquier espacio.</span></div>
+    <div class="stat"><b>15 min</b><span>De prueba de sonido antes del evento.</span></div>
+  </div>
+</div></section>
+
+<section id="eventos"><div class="wrap">
+  <h2 class="sec-title">Para qué <span>eventos</span></h2>
+  <div class="events">
+    <div class="event"><i>💍</i>Casamientos<small>El pico de la fiesta, con todos cantando</small></div>
+    <div class="event"><i>🎂</i>Cumpleaños y aniversarios<small>Un regalo que nadie se olvida</small></div>
+    <div class="event"><i>🏢</i>Fiestas de empresa<small>Fin de año, aniversarios y lanzamientos</small></div>
+    <div class="event"><i>🍺</i>Bares y eventos privados<small>Sets largos para noches enteras</small></div>
+  </div>
+</div></section>
+
+<section id="contacto" class="contact"><div class="wrap">
+  <div>
+    <h2 class="sec-title">Reservá tu <span>fecha</span></h2>
+    <p>Consultá disponibilidad y paquetes por WhatsApp, Instagram o mail. La fecha queda reservada con una seña.</p>
+    <a class="btn" href="https://wa.me/5491141727528?text=Hola!%20quiero%20consultar%20por%20el%20show%20de%20ARGENTINO%20para%20un%20evento" target="_blank" rel="noopener">Escribime por WhatsApp</a>
+  </div>
+  <div class="links">
+    <a href="https://wa.me/5491141727528" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg>
+      <div>+54 9 11 4172 7528<small>WhatsApp</small></div></a>
+    <a href="https://instagram.com/argentinomusica" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      <div>@argentinomusica<small>Instagram</small></div></a>
+    <a href="mailto:contacto@argentinomusica.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+      <div>contacto@argentinomusica.com<small>Mail</small></div></a>
+  </div>
+</div></section>
+
+<footer><b>ARGENTINO</b><br>Show de rock nacional y cumbia en vivo · Buenos Aires</footer>
+
+<a class="wa-float" href="https://wa.me/5491141727528?text=Hola!%20quiero%20consultar%20por%20el%20show%20de%20ARGENTINO%20para%20un%20evento" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg>
+</a>
+<script>
+(function(){var n=document.querySelector('nav'),h=document.querySelector('.hero h1');
+if(!('IntersectionObserver' in window)){n.classList.add('scrolled');return;}
+new IntersectionObserver(function(e){n.classList.toggle('scrolled',!e[0].isIntersecting);},{rootMargin:'-72px 0px 0px 0px'}).observe(h);})();
+</script>
+</body>
+</html>
